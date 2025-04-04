@@ -1,4 +1,4 @@
-# Provisionsrechner 💰
+# π Provisionsrechner 💰
 Einfaches Werkzeug zum berechnen der Vertriebsprovisionen laut <br>
 Betriebsvereinbarung Provisionierung aus Februar 2025.
 
