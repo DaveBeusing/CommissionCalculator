@@ -18,13 +18,7 @@
 <body>
 	<section>
 		<div class="commission-calculator">
-			<h2>Provisionsrechner 💰</h2>
-<!--
-	https://intranet.apigmbh.local//infopoint_dokumente/betriebsrat/Betriebsvereinbarung_Provisionierung.pdf
-
-
--->
-
+			<h2>π Provisionsrechner 💰</h2>
 			<div class="cc-input-wrap">
 				<select class="cc-input-select" id="period-of-employment">
 					<option value="0">Mehr als 12 Monate</option>
@@ -42,39 +36,32 @@
 				</select>
 				<span class="cc-input-descriptor">Betriebszugehörigkeit</span>
 			</div>
-
-
 			<div class="cc-input-wrap">
 				<input class="cc-input-text" type="text" value="0" id="margin-previous-year">
 				<span class="cc-input-unit">EUR</span>
 				<span class="cc-input-descriptor">∅ Rohertrag (Vorjahr)</span>
 			</div>
-
-
 			<div class="cc-input-wrap">
 				<input class="cc-input-text" type="text" value="0" id="margin-current">
 				<span class="cc-input-unit">EUR</span>
 				<span class="cc-input-descriptor">Rohertrag</span>
 			</div>
-
-
 			<div class="cc-input-wrap">
 				<input class="cc-input-text" type="text" value="0" id="margin-gold">
 				<span class="cc-input-unit">EUR</span>
 				<span class="cc-input-descriptor">Gold-Rohertrag</span>
 			</div>
-
-
 			<div class="cc-results">
 				<h3>Ergebnis</h3>
 				<p>Provision Rohertrag (6%): <span id="cc-result-margin-base"></span></p>
 				<p>Provision Steigerung (6%): <span id="cc-result-margin-increase"></span></p>
 				<p>Provision Gold (10%): <span id="cc-result-margin-gold"></span></p>
-				<p>Provision Gesamt: <span id="cc-result-margin-total"></span></p>				
+				<p>Provision Gesamt: <span id="cc-result-margin-total"></span></p>
 			</div>
-
-			<p id="cc-notice">Die Ergebnisse können aufgrund nicht berücksichtigter Faktoren abweichen und dienen nur als allgemeiner Richtwert.</p>
-
+			<p id="cc-notice">
+				Die Ergebnisse können aufgrund nicht berücksichtigter Faktoren abweichen und dienen nur als allgemeiner Richtwert.<br><br>
+				Provisionsberechnung auf Grundlage der <br> <a href="https://intranet.apigmbh.local//infopoint_dokumente/betriebsrat/Betriebsvereinbarung_Provisionierung.pdf" target="_blank">Betriebsvereinbarung Provisionierung</a> aus Februar 2025
+			</p>
 		</div>
 		<span id="loading">Loading...</span>
 	</section>

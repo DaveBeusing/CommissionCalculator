@@ -27,7 +27,10 @@ export default class CommissionCalculator {
 	 */
 	constructor( debug=false ){
 		this.debug = debug;
-
+		this.factor = {
+			regular : 6,
+			gold : 10
+		};
 		this.elements = {
 			period_of_employment : this.$( '#period-of-employment' ),
 			margin_previous_year : this.$( '#margin-previous-year' ),
@@ -73,9 +76,9 @@ export default class CommissionCalculator {
 	 * 
 	 */
 	calculate(){
-		const margin_c = ( this.parse( this.elements.margin_current.value ) * 6 / 100 );
-		const margin_i = ( ( this.parse( this.elements.margin_current.value ) - this.parse( this.elements.margin_previous_year.value ) ) * 6 / 100 );
-		const margin_g = ( this.parse( this.elements.margin_gold.value ) * 10 / 100 );
+		const margin_c = ( this.parse( this.elements.margin_current.value ) * this.factor.regular / 100 );
+		const margin_i = ( ( this.parse( this.elements.margin_current.value ) - this.parse( this.elements.margin_previous_year.value ) ) * this.factor.regular / 100 );
+		const margin_g = ( this.parse( this.elements.margin_gold.value ) * this.factor.gold / 100 );
 		const margin_t = margin_c + margin_i + margin_g;
 		this.$( '#cc-result-margin-base' ).innerHTML = `${margin_c} EUR`;
 		this.$( '#cc-result-margin-increase' ).innerHTML = `${margin_i} EUR`;
