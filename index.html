@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-V22GRNJ6NK"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'G-V22GRNJ6NK');
+	</script>
+	<meta charset="UTF-8">
+	<title> - Provisionsrechner - </title>
+	<meta name="description" content="Provisionsrechner">
+	<meta name="robots" content="noindex, nofollow">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+<body>
+	<section>
+		<div class="commission-calculator">
+			<h2>Provisionsrechner 💰</h2>
+<!--
+	https://intranet.apigmbh.local//infopoint_dokumente/betriebsrat/Betriebsvereinbarung_Provisionierung.pdf
+
+
+-->
+
+			<div class="cc-input-wrap">
+				<select class="cc-input-select" id="period-of-employment">
+					<option value="0">Mehr als 12 Monate</option>
+					<option value="250">2 Monate</option>
+					<option value="750">3 Monate</option>
+					<option value="1250">4 Monate</option>
+					<option value="2000">5 Monate</option>
+					<option value="2250">6 Monate</option>
+					<option value="2750">7 Monate</option>
+					<option value="3250">8 Monate</option>
+					<option value="3500">9 Monate</option>
+					<option value="3750">10 Monate</option>
+					<option value="4000">11 Monate</option>
+					<option value="4250">12 Monate</option>
+				</select>
+				<span class="cc-input-descriptor">Betriebszugehörigkeit</span>
+			</div>
+
+
+			<div class="cc-input-wrap">
+				<input class="cc-input-text" type="text" value="0" id="margin-previous-year">
+				<span class="cc-input-unit">EUR</span>
+				<span class="cc-input-descriptor">∅ Rohertrag (Vorjahr)</span>
+			</div>
+
+
+			<div class="cc-input-wrap">
+				<input class="cc-input-text" type="text" value="0" id="margin-current">
+				<span class="cc-input-unit">EUR</span>
+				<span class="cc-input-descriptor">Rohertrag</span>
+			</div>
+
+
+			<div class="cc-input-wrap">
+				<input class="cc-input-text" type="text" value="0" id="margin-gold">
+				<span class="cc-input-unit">EUR</span>
+				<span class="cc-input-descriptor">Gold-Rohertrag</span>
+			</div>
+
+
+			<div class="cc-results">
+				<h3>Ergebnis</h3>
+				<p>Provision Rohertrag (6%): <span id="cc-result-margin-base"></span></p>
+				<p>Provision Steigerung (6%): <span id="cc-result-margin-increase"></span></p>
+				<p>Provision Gold (10%): <span id="cc-result-margin-gold"></span></p>
+				<p>Provision Gesamt: <span id="cc-result-margin-total"></span></p>				
+			</div>
+
+			<p id="cc-notice">Die Ergebnisse können aufgrund nicht berücksichtigter Faktoren abweichen und dienen nur als allgemeiner Richtwert.</p>
+
+		</div>
+		<span id="loading">Loading...</span>
+	</section>
+	<script type="module" src="assets/js/main.js"></script>
+</body>
+</html>
