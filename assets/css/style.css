@@ -24,13 +24,17 @@
  @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400');
 
  :root{
-	 /**
-	  * https://colorhunt.co/palette/fff67ebfea7c9bcf53416d19
-	  */
-	 --color-light-yellow: #FFF67E;
-	 --color-light-green: #BFEA7C;
-	 --color-medium-green: #9BCF53;
-	 --color-dark-green: #416D19;
+	/**
+	 * api Corporate Identity
+	 * Color
+	 * Blue 	#233588 / RGB 35 53 136 
+	 * Gold 	#FFC000 / RGB 255 192 0
+	 * White 	#FFFFFF / RGB 255 255 255
+	 */
+	 --color-blue: #233588;
+	 --color-white: #ffffff;
+	 --color-gold: #ffc000;
+	 --color-gray: #edeef0;
  }
  
  * {
@@ -43,21 +47,21 @@
 section {
 	width: 100%;
 	min-height: 100vh;
-	background: linear-gradient( 135deg, var(--color-light-yellow), var(--color-light-green) );
+	background: linear-gradient( 135deg, var(--color-white), var(--color-blue) );
 	padding: 10px;
 }
 
 .commission-calculator {
 	width: 100%;
 	max-width: 540px;
-	background: #fff;
+	background: var(--color-white);
 	margin: 50px auto 20px;
 	padding: 40px 30px 40px;
 	border-radius: 10px;
 }
 
 .commission-calculator h2 {
-	color: var(--color-dark-green);
+	color: var(--color-blue);
 	font-size: 38px;
 	font-weight: 800;
 	display: flex;
@@ -70,7 +74,7 @@ section {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	background: #edeef0;
+	background: var(--color-gray);
 	border-radius: 30px;
 	padding-left: 20px;
 	margin-bottom: 15px;
@@ -102,8 +106,8 @@ section {
 	border: none;
 	outline: none;
 	padding: 16px 25px;
-	background: var(--color-medium-green);
-	color: var(--color-dark-green);
+	background: var(--color-blue);
+	color: var(--color-gold);
 	font-size: 16px;
 	border-radius: 40px;
 	min-width: 200px;
@@ -113,7 +117,7 @@ section {
 .cc-results h3 {
 	font-size: 26px;
 	padding: 15px 0;
-	color: var(--color-dark-green);
+	color: var(--color-blue);
 }
 
 .cc-results p {
@@ -122,7 +126,7 @@ section {
 	align-items: left;
 	justify-content: space-between;
 	font-weight: bold;
-	color: var(--color-dark-green);
+	color: var(--color-blue);
 }
 
 .cc-results span {
