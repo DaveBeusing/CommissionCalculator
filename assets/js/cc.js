@@ -59,6 +59,18 @@ export default class CommissionCalculator {
 	 */
 	run(){
 		this.calculate();
+
+		//EventListener hints clicked
+		document.querySelectorAll(".cc-input-hint-toggle").forEach( ( hint ) => {
+			if( this.debug ) console.log( hint.dataset.target );
+			hint.addEventListener( 'click', function( event ){ 
+				this.$( `#${hint.dataset.target}` ).classList.toggle( 'hide' );
+				this.$( `#${hint.dataset.target}` ).classList.toggle( 'slideIn' );
+
+			}.bind( this ), false );
+		});
+
+		//EventListener values changed
 		for(let [name, element] of Object.entries( this.elements ) ){
 			if( this.debug ) console.log( `${name}: ${element}` );
 			element.addEventListener( 'change', function( event ){ 

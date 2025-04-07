@@ -80,6 +80,39 @@ section {
 	margin-bottom: 15px;
 }
 
+.cc-input-hint-toggle {
+	margin: 5px;
+	padding: 5px;
+	cursor: pointer;
+}
+
+.cc-input-hint-toggle::before {
+	content: '❔';
+}
+
+.cc-input-hint-toggle:hover::before {
+	content: '❓';
+}
+
+.cc-input-hint {
+	position: relative;
+	background-color: var(--color-gray);
+	margin: -15px 25px 25px 25px;
+	font-size: smaller;
+	padding: 10px 25px;
+}
+
+.hide {
+	opacity: 0;
+	display: none;
+	transition: all 0.25s allow-discrete;
+}
+.slideIn {
+	opacity: 1;
+	display: block;
+	transition: all 0.25s allow-discrete;
+}
+
 .cc-input-text,
 .cc-input-select {
 	flex:1;

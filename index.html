@@ -20,6 +20,7 @@
 		<div class="commission-calculator">
 			<h2>π Provisionsrechner 💰</h2>
 			<div class="cc-input-wrap">
+				<p class="cc-input-hint-toggle" data-target="cc-input-hint-poe"></p>
 				<select class="cc-input-select" id="period-of-employment">
 					<option value="0">Mehr als 12 Monate</option>
 					<option value="250">2 Monate</option>
@@ -36,20 +37,89 @@
 				</select>
 				<span class="cc-input-descriptor">Betriebszugehörigkeit</span>
 			</div>
+			<div class="cc-input-hint hide" id="cc-input-hint-poe">
+				§2.2 Für Neue Mitarbeiter gelten folgende Vorjahreswerte:
+				Monat	Wert
+				2	250 Euro
+				3	750	Euro
+				4	1.250 Euro
+				5	2.000 Euro
+				6	2.250 Euro
+				7	2.750 Euro
+				8	3.250 Euro
+				9	3.500 Euro
+				10	3.750 Euro
+				11	4.000 Euro
+				12	4.250 Euro
+			</div>
 			<div class="cc-input-wrap">
+				<p class="cc-input-hint-toggle" data-target="cc-input-hint-base-salary"></p>
+				<input class="cc-input-text" type="text" value="2500" id="base-salary">
+				<span class="cc-input-unit">EUR</span>
+				<span class="cc-input-descriptor">Grundgehalt</span>
+			</div>
+			<div class="cc-input-hint hide" id="cc-input-hint-base-salary">
+				<b>§2.3 Provisionsgrenzen</b><br>
+				Für Grundgehälter unter 2.500 Euro gilt grundsätzlich eine Provision von 6% ab dem ersten Euro.
+				Bei einem Grundgehalt über 2.500 Euro erhöht sich die Rohertragsgrenze (Roh+VP*) ab der die Roherträge vergütet werden,
+				um 1.000 EURO für jede 100 EUro mehr Grundgehalt.
+				Beispiele:
+				2.900 EUR = 4.000 EUR Grenze Roh+VP*
+				3.100 EUR = 6.000 EUR Grenze Roh+VP*
+				4.300 EUR = 18.000 EUR Grenze Roh+VP*
+				Sollte der gleitende Vorjahreswert kleiner als die Grenze sein, so gilt die Grenze als Bezugswert.
+				Bestandskunden, welche auf einen neunen BEarbeiter umgeschrieben werden, werden mit in den gleitenden Wert
+				für die Steigerung eingerechnet.
+			</div>
+			<div class="cc-input-wrap">
+				<p class="cc-input-hint-toggle" data-target="cc-input-hint-previous-year"></p>
 				<input class="cc-input-text" type="text" value="0" id="margin-previous-year">
 				<span class="cc-input-unit">EUR</span>
 				<span class="cc-input-descriptor">∅ Rohertrag (Vorjahr)</span>
 			</div>
+			<div class="cc-input-hint hide" id="cc-input-hint-previous-year">
+				Rohertrag (Roh+Vp*) des Vorjahresmonat mit dreimonatiger Betrachtung
+				Hier wird der Durchschnittswert vom (Roh+Vp*) des Vorjahresmonat, sowie dessen
+				vorherigen und darauffolgendem Monat berechnet. Der individuelle Wert wird von
+				der Vertriebsleitung bzw. dem Controlling jedem Mitarbeiter am Anfang des Monats
+				mitgeteilt, oder ist im System ersichtlich.
+				Beispiel:
+				Rechnungsmonat	Januar 2025
+				Vorjahresmonat Januar 2024 12.000 Euro Rohertrag (Roh+VP*)
+				Vorheriger Monat Dezember 2023 11.000 Euro Rohertrag (Roh+VP*)
+				Nachfolge Monat Februar 2024 15.000 Euro Rohertrag (Roh+VP*)
+				Grundlage für Rechnungsmonat:
+				Durchschnitt der Monate Jan 24, Dez 23, Feb.24 = 12.667 Euro Rohertrag (Roh+VP*)
+			</div>
 			<div class="cc-input-wrap">
+				<p class="cc-input-hint-toggle" data-target="cc-input-hint-margin-current"></p>
 				<input class="cc-input-text" type="text" value="0" id="margin-current">
 				<span class="cc-input-unit">EUR</span>
 				<span class="cc-input-descriptor">Rohertrag</span>
 			</div>
+			<div class="cc-input-hint hide" id="cc-input-hint-margin-current">
+				Der Mitarbeiter erhält eine Provision in Höhe von 6% des im aktuellen Monat erzielten Rohertrags(Roh+VP*).
+				Für den Teil des aktuellen Monatsrohertrags (Roh+VP*), der den oben ermittelten
+				Durchschnitt übersteigt, erhält der Mitarbeiter eine zusätzliche Provision von 6%.
+			</div>
 			<div class="cc-input-wrap">
+				<p class="cc-input-hint-toggle" data-target="cc-input-hint-margin-gold"></p>
 				<input class="cc-input-text" type="text" value="0" id="margin-gold">
 				<span class="cc-input-unit">EUR</span>
 				<span class="cc-input-descriptor">Gold-Rohertrag</span>
+			</div>
+			<div class="cc-input-hint hide" id="cc-input-hint-margin-gold">
+				Für die GoldArtikel kann der Mitarbeiter eine Provision in Höhe von 10 % des gesamten
+				Artikelrohertrags für sogenannte Goldartikel erhalten. Diese Artikel werden in der
+				Warenwirtschaft mit GoldRoh entsprechend gekennzeichnet. Die Provision für
+				Goldartikel ist unabhängig vom durchschnittlichen Rohertrag des Vorjahres. Goldartikel
+				werden weder zur Steigerung des Rohertrages, noch in der Betrachtung der
+				Vergangenheitswerte berücksichtigt.
+				Beispiel
+				GoldRoh Roh+VP* GesamtRoh
+				2.000 Euro 21.433 Euro 23.433 Euro
+				Vorjahresschnitt war 17.200 (Roh+Vp*)
+				* Roh + VP enthält in Zukunft kein GoldRoh, dieser ist in der Spalte GesamtRoh kumuliert enthalten.
 			</div>
 			<div class="cc-results">
 				<h3>Ergebnis</h3>
@@ -59,8 +129,9 @@
 				<p>Provision Gesamt: <span id="cc-result-margin-total"></span></p>
 			</div>
 			<p id="cc-notice">
-				Die Ergebnisse können aufgrund nicht berücksichtigter Faktoren abweichen und dienen nur als allgemeiner Richtwert.<br><br>
-				Provisionsberechnung auf Grundlage der <br> <a href="https://intranet.apigmbh.local//infopoint_dokumente/betriebsrat/Betriebsvereinbarung_Provisionierung.pdf" target="_blank">Betriebsvereinbarung Provisionierung</a> aus Februar 2025
+				Provisionsberechnung auf Grundlage der <br>
+				<a href="https://intranet.apigmbh.local//infopoint_dokumente/betriebsrat/Betriebsvereinbarung_Provisionierung.pdf" target="_blank">Betriebsvereinbarung Provisionierung</a> aus Februar 2025 <br>
+				Die Ergebnisse können aufgrund nicht berücksichtigter Faktoren abweichen und dienen nur als allgemeiner Richtwert.
 			</p>
 		</div>
 		<span id="loading">Loading...</span>
